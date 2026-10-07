@@ -1,0 +1,27 @@
+# clusters/managed-cluster-1.yaml
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  name: managed-cluster-1
+  labels:
+    cloud: baremetal
+    vendor: OpenShift
+spec:
+  hubAcceptsClient: true
+---
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: managed-cluster-1
+  namespace: managed-cluster-1
+spec:
+  clusterName: managed-cluster-1
+  clusterNamespace: managed-cluster-1
+  applicationManager:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  certPolicyController:
+    enabled: true
